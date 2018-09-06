@@ -7,7 +7,19 @@ class App extends Component {
     return (
       <div className="App">
         <h2>{helloworld}</h2>
+        <User/>
       </div>     
+    );
+  }
+}
+
+class User extends Component {
+  render() {
+    var firstName='JuYeol';
+    var secondName='An';
+
+    return (      
+        <h>{firstName} {secondName}</h>    
     );
   }
 }
