@@ -32,15 +32,4 @@ class App extends Component {
   }
 }
 
-class User extends Component {
-  render() {
-    const firstName='JuYeol';
-    const secondName='An';
-
-    return (      
-        <h>{firstName} {secondName}</h>    
-    );
-  }
-}
-
 export default App;
