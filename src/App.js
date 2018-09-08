@@ -21,7 +21,7 @@ const list = [
 ];
 
 const isSearched = searchTerm => item =>
- item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  item.title.toLowerCase().includes(searchTerm.toLowerCase());
 
 class App extends Component {
 
@@ -42,14 +42,14 @@ class App extends Component {
   }
 
   onDismiss(id) {
-    const isNotId = item => item.objectID !== id;    
+    const isNotId = item => item.objectID !== id;
     const updatedList = this.state.list.filter(isNotId);
-    this.setState({list: updatedList });
+    this.setState({ list: updatedList });
   }
 
   render() {
     const { list,
-            searchTerm 
+      searchTerm
           } = this.state;
     return (
       <div className="App">
