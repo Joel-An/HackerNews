@@ -48,9 +48,7 @@ class App extends Component {
   }
 
   render() {
-    const { list,
-      searchTerm
-          } = this.state;
+    const { list, searchTerm } = this.state;
     return (
       <div className="App">
         <Search
