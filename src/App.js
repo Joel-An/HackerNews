@@ -53,13 +53,10 @@ class App extends Component {
           } = this.state;
     return (
       <div className="App">
-        <form>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={this.onSearchChange}          
-          />
-        </form>
+        <Search
+          value={searchTerm}
+          onChange={this.onSearchChange}
+        />
         {list.filter(isSearched(searchTerm)).map((item) =>
             <div key={item.objectID}>
               <span>
@@ -79,6 +76,22 @@ class App extends Component {
             </div>
         )}
       </div>     
+    );
+  }
+}
+
+class Search extends Component {
+  render() {
+    const { value, onChange } = this.props;
+
+    return (
+      <form>
+        <input
+          type="text"
+          value={value}
+          onChange={onChange}
+        />
+      </form>
     );
   }
 }
