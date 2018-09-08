@@ -52,11 +52,11 @@ class App extends Component {
     return (
       <div className="page">
         <div className="interactions">
-        <Search
-          value={searchTerm}
-          onChange={this.onSearchChange}
-        >
-          Search
+          <Search
+            value={searchTerm}
+            onChange={this.onSearchChange}
+          >
+            Search
         </Search>
         </div>
         <Table
