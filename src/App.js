@@ -27,14 +27,15 @@ class App extends Component {
 
     this.state = {
       list,
+      searchTerm: '',
     };
 
     this.onSearchChange = this.onSearchChange.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
   }
 
-  onSearchChange() {
-    
+  onSearchChange(event) {
+    this.setState({ searchTerm: event.target.value });
   }
 
   onDismiss(id) {
