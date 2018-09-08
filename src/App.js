@@ -110,24 +110,22 @@ function Table(props) {
 
 }
 
-class Button extends Component {
-  render() {
-    const {
+function Button(props) {
+  const {
       onClick,
-      className = '',
-      children,
-    } = this.props;
+    className = '',
+    children,
+    } = props;
 
-    return (
-      <button
-        onClick={onClick}
-        className={className}
-        type="button"
-      >
-        {children}
-      </button>
-    );
-  }
+  return (
+    <button
+      onClick={onClick}
+      className={className}
+      type="button"
+    >
+      {children}
+    </button>
+  );
 }
 
 
