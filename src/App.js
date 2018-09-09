@@ -42,7 +42,20 @@ class App extends Component {
   }
 
   setSearchTopStories(result) {
-    this.setState({ result });
+    const { hits, page } = result;
+
+    const oldhits = page !== 0
+      ? this.state.result.hits
+      : [];
+
+    const updatedHits = [
+      ...oldhits,
+      ...hits
+    ];
+
+    this.setState({ 
+      result: { hits: updatedHits, page }
+    });
   }
 
   fetchSearchTopStories(searchTerm, page = 0) {
