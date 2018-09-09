@@ -37,7 +37,6 @@ class App extends Component {
   }
 
   setSearchTopStories(result) {
-    console.log(result);
     this.setState({ result });
   }
 
