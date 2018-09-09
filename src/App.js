@@ -77,6 +77,7 @@ class App extends Component {
 
   render() {
     const { searchTerm, result } = this.state;
+    const page = (result && result.page) || 0;
     return (
       <div className="page">
         <div className="interactions">
@@ -94,6 +95,11 @@ class App extends Component {
             onDismiss={this.onDismiss}
           />          
         }
+        <div className="interactions">
+          <button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>
+            More
+          </button>
+        </div>
       </div>
     );
   }
