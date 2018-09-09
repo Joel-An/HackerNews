@@ -62,6 +62,7 @@ class App extends Component {
 
   onSearchSubmit() {
     const { searchTerm } = this.state;
+    this.fetchSearchTopStories(searchTerm);
   }
 
   onDismiss(id) {
