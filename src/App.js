@@ -46,18 +46,32 @@ class App extends Component {
 
   setSearchTopStories(result) {
     const { hits, page } = result;
+    const { searchKey, results } = this.state;
 
-    const oldhits = page !== 0
-      ? this.state.result.hits
+    console.log('searchKey ='+searchKey);
+
+    console.log('fetch result is &&&&&');
+    console.log(result);
+    console.log('&&&&&&&&&');
+
+    const oldHits = results && results[searchKey]
+      ? results[searchKey].hits
       : [];
 
     const updatedHits = [
-      ...oldhits,
+      ...oldHits,
       ...hits
     ];
 
+    console.log('updatedHits is &&&&&');
+    console.log(updatedHits);
+    console.log('&&&&&&&&&');
+
     this.setState({ 
-      result: { hits: updatedHits, page }
+      results: { 
+        ...results,
+        [searchKey]: { hits: updatedHits, page }
+      }
     });
   }
 
@@ -94,8 +108,21 @@ class App extends Component {
   }
 
   render() {
-    const { searchTerm, result } = this.state;
-    const page = (result && result.page) || 0;
+    const { searchTerm, results, searchKey } = this.state;
+
+    const page = (
+      results &&
+      results[searchKey] &&
+      results[searchKey].page    
+    ? results[searchKey].page
+    : 0);
+
+    const list = (
+      results &&
+      results[searchKey]
+    ? results[searchKey].hits
+    : []);
+  
     return (
       <div className="page">
         <div className="interactions">
@@ -107,14 +134,12 @@ class App extends Component {
             Search
         </Search>
         </div>
-        { result &&
           <Table
-            list={result.hits}
+            list={list}
             onDismiss={this.onDismiss}
           />          
-        }
         <div className="interactions">
-          <button onClick={() => this.fetchSearchTopStories(searchTerm, page + 1)}>
+          <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
             More
           </button>
         </div>
