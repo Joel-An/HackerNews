@@ -60,9 +60,10 @@ class App extends Component {
     this.setState({ searchTerm: event.target.value });
   }
 
-  onSearchSubmit() {
+  onSearchSubmit(event) {
     const { searchTerm } = this.state;
     this.fetchSearchTopStories(searchTerm);
+    event.preventDefault();
   }
 
   onDismiss(id) {
