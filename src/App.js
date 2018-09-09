@@ -99,15 +99,18 @@ class App extends Component {
 }
 
 function Search(props) {
-  const { value, onChange, children } = props;
+  const { value, onChange, onSubmit, children } = props;
 
   return (
-    <form>
-      {children} <input
+    <form onSubmit={onSubmit}>
+      <input
         type="text"
         value={value}
         onChange={onChange}
       />
+      <button type="submit">
+        {children}
+      </button>
     </form>
   );
 }
