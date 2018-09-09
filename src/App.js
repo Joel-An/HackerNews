@@ -47,7 +47,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list,
+      list: null,
       searchTerm: DEFAULT_QUERY,
     };
     this.setSearchTopStories = this.setSearchTopStories.bind(this);
@@ -80,7 +80,10 @@ class App extends Component {
   }
 
   render() {
-    const { list, searchTerm } = this.state;
+    const { searchTerm, result } = this.state;
+
+    if (!result) { return null; }
+
     return (
       <div className="page">
         <div className="interactions">
@@ -92,7 +95,7 @@ class App extends Component {
         </Search>
         </div>
         <Table
-          list={list}
+          list={result.hits}
           pattern={searchTerm}
           onDismiss={this.onDismiss}
         />
