@@ -31,8 +31,10 @@ class App extends Component {
       list: null,
       searchTerm: DEFAULT_QUERY,
     };
+
     this.setSearchTopStories = this.setSearchTopStories.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
+    this.onSearchSubmit = this.onSearchSubmit.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
   }
 
@@ -51,6 +53,10 @@ class App extends Component {
 
   onSearchChange(event) {
     this.setState({ searchTerm: event.target.value });
+  }
+
+  onSearchSubmit() {
+    const { searchTerm } = this.state;
   }
 
   onDismiss(id) {
