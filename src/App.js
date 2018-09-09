@@ -81,7 +81,7 @@ class App extends Component {
           <Search
             value={searchTerm}
             onChange={this.onSearchChange}
-            onSubmit={this.onSubmit}
+            onSubmit={this.onSearchSubmit}
           >
             Search
         </Search>
