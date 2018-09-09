@@ -89,7 +89,6 @@ class App extends Component {
         { result &&
           <Table
             list={result.hits}
-            pattern={searchTerm}
             onDismiss={this.onDismiss}
           />          
         }
@@ -120,7 +119,7 @@ function Table(props) {
 
   return (
     <div className="table">
-      {list.filter(isSearched(pattern)).map((item) =>
+      {list.map((item) =>
         <div key={item.objectID} className="table-row">
           <span style={largeColumn}>
             <a href={item.url}>{item.title}</a>
