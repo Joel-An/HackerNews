@@ -34,6 +34,7 @@ class App extends Component {
       results: null,
       searchKey: '',
       searchTerm: DEFAULT_QUERY,
+      error: null
     };
 
     this.needsToSearchTopStories = this.needsToSearchTopStories.bind(this);
@@ -104,7 +105,7 @@ class App extends Component {
     if(this.needsToSearchTopStories(searchTerm)) {
       this.fetchSearchTopStories(searchTerm);
     }    
-    
+
     event.preventDefault();
   }
 
